@@ -1,0 +1,18 @@
+PODS:
+  - GPUImage (0.1.7)
+  - SDWebImage (3.7.5):
+    - SDWebImage/Core (= 3.7.5)
+  - SDWebImage/Core (3.7.5)
+  - YYModel (1.0.3)
+
+DEPENDENCIES:
+  - GPUImage
+  - SDWebImage
+  - YYModel (~> 1.0.3)
+
+SPEC CHECKSUMS:
+  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
+  SDWebImage: 69c6303e3348fba97e03f65d65d4fbc26740f461
+  YYModel: 63142c2f07c5c8c9d1c261689cf3827ea6ab2886
+
+COCOAPODS: 0.39.0

@@ -9,8 +9,8 @@
 typedef enum {
  
     MusicPlaying = 0,//播放中
-    MusicPluse,
-    MusicNone
+    MusicPluse,//暂停
+    MusicDefult//Defult
     
 }JCMusicPlayState;//音乐播放状态
 
@@ -21,19 +21,42 @@ typedef enum {
 typedef void(^RequestMusicListBlock)(NSArray *musicListArray);
 
 @interface MusicListItem : NSObject
-
+//----------------基本属性------------//
+/**
+ *  歌曲Id
+ */
+@property (strong, nonatomic) NSString *Id;
 /**
  *  歌曲名字
  */
-@property (strong, nonatomic) NSString *musicName;
+@property (strong, nonatomic) NSString *title;
+
+/**
+ *  艺术家名字
+ */
+@property (strong, nonatomic) NSString *artist;
+/**
+ *  封面图片
+ */
+@property (strong, nonatomic) NSString *pic;
 /**
  *  歌曲描述
  */
 @property (strong, nonatomic) NSString *musicInfo;
 /**
+ *  歌曲网络url
+ */
+@property (strong, nonatomic) NSString *music_url;
+
+//----------------额外属性------------//
+/**
  *  歌曲位置
  */
 @property (assign, nonatomic) NSInteger musicListNumber;
+/**
+ *  歌曲本地路径url
+ */
+@property (strong, nonatomic) NSURL *musicUrl;
 /**
  *  播放状态
  */

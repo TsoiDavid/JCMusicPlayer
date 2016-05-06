@@ -21,8 +21,8 @@
 - (void)setMusicList:(MusicListItem *)musicList {
     _musicList = musicList;
     
-    _musicName.text = _musicList.musicName;
-    _musicInfo.text = _musicList.description;
+    _musicName.text = _musicList.title;
+    _musicInfo.text = _musicList.artist;
     
     if (_musicList.state != MusicPlaying) {
         _musicIndicatorView.hidden = YES;
