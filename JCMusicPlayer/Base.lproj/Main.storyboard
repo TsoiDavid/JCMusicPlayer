@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellId" id="kCh-xD-81m">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CellId" id="kCh-xD-81m" customClass="MusicPlayListCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kCh-xD-81m" id="XAY-rk-giJ">
@@ -23,10 +23,29 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PHi-Aj-DJi">
                                             <rect key="frame" x="10" y="2" width="45" height="45"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="S7X-v1-jFe" userLabel="playImage">
+                                                    <rect key="frame" x="12.5" y="12.5" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="hEU-BN-6th"/>
+                                                        <constraint firstAttribute="height" constant="20" id="n7f-rj-DfN"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBc-nX-HUs">
+                                                    <rect key="frame" x="1" y="12" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" red="1" green="0.35653024179999998" blue="0.31856501339999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="45" id="3Hr-hp-maV"/>
+                                                <constraint firstItem="DBc-nX-HUs" firstAttribute="centerY" secondItem="PHi-Aj-DJi" secondAttribute="centerY" id="3Km-uG-S2i"/>
+                                                <constraint firstItem="S7X-v1-jFe" firstAttribute="centerX" secondItem="PHi-Aj-DJi" secondAttribute="centerX" id="LJr-7E-eff"/>
+                                                <constraint firstItem="S7X-v1-jFe" firstAttribute="centerY" secondItem="PHi-Aj-DJi" secondAttribute="centerY" id="SfT-1E-53O"/>
                                                 <constraint firstAttribute="height" constant="45" id="mR6-aA-oPt"/>
+                                                <constraint firstItem="DBc-nX-HUs" firstAttribute="centerX" secondItem="PHi-Aj-DJi" secondAttribute="centerX" id="mTg-CX-YLh"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCv-aC-Zwd">
@@ -61,6 +80,13 @@
                                         <constraint firstItem="KCv-aC-Zwd" firstAttribute="leading" secondItem="PHi-Aj-DJi" secondAttribute="trailing" constant="10" id="xn5-uI-Jeb"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="leftView" destination="PHi-Aj-DJi" id="uw9-Kc-1gv"/>
+                                    <outlet property="musicIndicatorNumberLabel" destination="DBc-nX-HUs" id="88J-EV-mKU"/>
+                                    <outlet property="musicIndicatorView" destination="S7X-v1-jFe" id="XZJ-Jg-4Ad"/>
+                                    <outlet property="musicInfo" destination="KCv-aC-Zwd" id="BIs-Tt-i6m"/>
+                                    <outlet property="musicName" destination="dXi-RR-mWL" id="dBd-s5-1te"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

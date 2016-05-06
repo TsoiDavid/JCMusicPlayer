@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		843D66941CDC2814005158FD /* MusicPlayListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 843D66931CDC2814005158FD /* MusicPlayListCell.m */; };
+		843D66DE1CDC4AB8005158FD /* 1770040300_2031329_l.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 843D66DB1CDC4AB8005158FD /* 1770040300_2031329_l.mp3 */; };
+		843D66DF1CDC4AB8005158FD /* 1770059653_2050944_l.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 843D66DC1CDC4AB8005158FD /* 1770059653_2050944_l.mp3 */; };
+		843D66E01CDC4AB8005158FD /* 1771694697_4194836_l.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 843D66DD1CDC4AB8005158FD /* 1771694697_4194836_l.mp3 */; };
+		843D66E11CDC4ACC005158FD /* 1770040300_2031329_l.mp3 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 843D66DB1CDC4AB8005158FD /* 1770040300_2031329_l.mp3 */; };
+		843D66E21CDC4ACC005158FD /* 1770059653_2050944_l.mp3 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 843D66DC1CDC4AB8005158FD /* 1770059653_2050944_l.mp3 */; };
+		843D66E31CDC4ACC005158FD /* 1771694697_4194836_l.mp3 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 843D66DD1CDC4AB8005158FD /* 1771694697_4194836_l.mp3 */; };
 		843F2EF81CD99E3B00E852CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 843F2EF71CD99E3B00E852CB /* main.m */; };
 		843F2EFB1CD99E3B00E852CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 843F2EFA1CD99E3B00E852CB /* AppDelegate.m */; };
 		843F2F011CD99E3B00E852CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 843F2EFF1CD99E3B00E852CB /* Main.storyboard */; };
@@ -17,7 +24,27 @@
 		8442E2AF1CDB504600754088 /* MusicListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8442E2AE1CDB504600754088 /* MusicListItem.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		843D66C81CDC48EE005158FD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Musics;
+			dstSubfolderSpec = 7;
+			files = (
+				843D66E11CDC4ACC005158FD /* 1770040300_2031329_l.mp3 in CopyFiles */,
+				843D66E21CDC4ACC005158FD /* 1770059653_2050944_l.mp3 in CopyFiles */,
+				843D66E31CDC4ACC005158FD /* 1771694697_4194836_l.mp3 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		843D66921CDC2814005158FD /* MusicPlayListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicPlayListCell.h; sourceTree = "<group>"; };
+		843D66931CDC2814005158FD /* MusicPlayListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicPlayListCell.m; sourceTree = "<group>"; };
+		843D66DB1CDC4AB8005158FD /* 1770040300_2031329_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1770040300_2031329_l.mp3; sourceTree = "<group>"; };
+		843D66DC1CDC4AB8005158FD /* 1770059653_2050944_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1770059653_2050944_l.mp3; sourceTree = "<group>"; };
+		843D66DD1CDC4AB8005158FD /* 1771694697_4194836_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1771694697_4194836_l.mp3; sourceTree = "<group>"; };
 		843F2EF31CD99E3B00E852CB /* JCMusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCMusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		843F2EF71CD99E3B00E852CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		843F2EF91CD99E3B00E852CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,6 +72,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		843D66911CDC27E3005158FD /* MusicPlayList */ = {
+			isa = PBXGroup;
+			children = (
+				843D66921CDC2814005158FD /* MusicPlayListCell.h */,
+				843D66931CDC2814005158FD /* MusicPlayListCell.m */,
+			);
+			path = MusicPlayList;
+			sourceTree = "<group>";
+		};
+		843D66D91CDC4AB8005158FD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				843D66DA1CDC4AB8005158FD /* Musics */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		843D66DA1CDC4AB8005158FD /* Musics */ = {
+			isa = PBXGroup;
+			children = (
+				843D66DB1CDC4AB8005158FD /* 1770040300_2031329_l.mp3 */,
+				843D66DC1CDC4AB8005158FD /* 1770059653_2050944_l.mp3 */,
+				843D66DD1CDC4AB8005158FD /* 1771694697_4194836_l.mp3 */,
+			);
+			path = Musics;
+			sourceTree = "<group>";
+		};
 		843F2EEA1CD99E3B00E852CB = {
 			isa = PBXGroup;
 			children = (
@@ -66,7 +120,7 @@
 			children = (
 				843F2F0D1CD9A04E00E852CB /* APP */,
 				843F2F121CD9A05600E852CB /* Libs */,
-				843F2F131CD9A05C00E852CB /* Resources */,
+				843D66D91CDC4AB8005158FD /* Resources */,
 				843F2EF61CD99E3B00E852CB /* Supporting Files */,
 			);
 			path = JCMusicPlayer;
@@ -126,6 +180,7 @@
 		843F2F111CD9A04E00E852CB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				843D66911CDC27E3005158FD /* MusicPlayList */,
 				843F2F141CD9A09000E852CB /* Storyboard */,
 			);
 			path = View;
@@ -136,13 +191,6 @@
 			children = (
 			);
 			path = Libs;
-			sourceTree = "<group>";
-		};
-		843F2F131CD9A05C00E852CB /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		843F2F141CD9A09000E852CB /* Storyboard */ = {
@@ -163,6 +211,7 @@
 				843F2EEF1CD99E3B00E852CB /* Sources */,
 				843F2EF01CD99E3B00E852CB /* Frameworks */,
 				843F2EF11CD99E3B00E852CB /* Resources */,
+				843D66C81CDC48EE005158FD /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -212,7 +261,10 @@
 			files = (
 				843F2F061CD99E3B00E852CB /* LaunchScreen.storyboard in Resources */,
 				843F2F031CD99E3B00E852CB /* Assets.xcassets in Resources */,
+				843D66DE1CDC4AB8005158FD /* 1770040300_2031329_l.mp3 in Resources */,
 				843F2F011CD99E3B00E852CB /* Main.storyboard in Resources */,
+				843D66E01CDC4AB8005158FD /* 1771694697_4194836_l.mp3 in Resources */,
+				843D66DF1CDC4AB8005158FD /* 1770059653_2050944_l.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +280,7 @@
 				8442E2AF1CDB504600754088 /* MusicListItem.m in Sources */,
 				8442E2AC1CDB4F3700754088 /* MusicItem.m in Sources */,
 				843F2EF81CD99E3B00E852CB /* main.m in Sources */,
+				843D66941CDC2814005158FD /* MusicPlayListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
