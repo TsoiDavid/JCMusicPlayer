@@ -11,6 +11,7 @@
 @class MusicListItem;
 
 @interface MusicPlayerViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
+//@property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
+@property (strong,nonatomic) UIImageView *bgImageView;
 @property (strong, nonatomic) MusicListItem *musicModel;
 @end

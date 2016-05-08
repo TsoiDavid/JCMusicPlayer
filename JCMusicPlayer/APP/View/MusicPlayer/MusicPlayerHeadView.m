@@ -19,8 +19,7 @@
 
 @implementation MusicPlayerHeadView
 
-+(MusicPlayerHeadView *)instanceView
-{
++(MusicPlayerHeadView *)instanceView {
     NSArray* nibView =  [[NSBundle mainBundle] loadNibNamed:@"MusicPlayerHeadView" owner:nil options:nil];
     
     return [nibView objectAtIndex:0];
