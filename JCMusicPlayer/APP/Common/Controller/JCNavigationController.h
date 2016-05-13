@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class MusicNavagationView;
+
 @interface JCNavigationController : UINavigationController
+
 +(void)initialize;
+
 @end

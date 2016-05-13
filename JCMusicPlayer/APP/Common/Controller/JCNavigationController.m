@@ -6,8 +6,20 @@
 //  Copyright © 2015年 Yes_3D. All rights reserved.
 //
 
+
 #import "JCNavigationController.h"
 #import "UIBarButtonItem+Extension.h"
+#import "MusicNavagationView.h"
+#import "MusicPlayerViewController.h"
+//导航条高度
+static const CGFloat navHeadViewHight = 64;
+
+@interface JCNavigationController ()
+
+@property (strong,nonatomic) MusicNavagationView *navHeadView;
+
+@end
+
 @implementation JCNavigationController
 
 + (void)initialize
@@ -33,8 +45,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.navigationBar.translucent = YES;
-    self.navigationBar.backgroundColor = [UIColor blackColor];
+    
     
 }
 
@@ -49,12 +60,22 @@
     if (self.viewControllers.count > 0) { // 这时push进来的控制器viewController，不是第一个子控制器（不是根控制器）
         /* 自动显示和隐藏tabbar */
         viewController.hidesBottomBarWhenPushed = YES;
-        
         /* 设置导航栏上面的内容 */
         // 设置左边的返回按钮
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"cm2_mv_btn_back_prs" highImage:@"cm2_mv_btn_back_prs"];
 
-//        [viewController.navigationController.navigationBar set
+        
+        if ([viewController isKindOfClass:[MusicPlayerViewController class]]) {
+            self.navigationBar.hidden = YES;
+            [self.view addSubview:self.navHeadView];
+        }else {
+            self.navigationBar.hidden = NO;
+            [_navHeadView removeFromSuperview];
+        }
+        
+        
+        
+//        viewController.navigationController.navigationBar
 //         设置右边的更多按钮
 //        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(more) image:@"navigationbar_more" highImage:@"navigationbar_more_highlighted"];
     }
@@ -73,5 +94,25 @@
 {
     [self popToRootViewControllerAnimated:YES];
 }
+
+- (void)setTitle:(NSString *)title {
+    self.navHeadView.titleString = title;
+}
+#pragma mark - CoustomNavagationView
+
+- (MusicNavagationView *)navHeadView {
+    if (!_navHeadView) {
+        _navHeadView = [MusicNavagationView instanceView];
+        __weak typeof(self)weakSelf = self;
+        _navHeadView.frame = CGRectMake(0, 0, self.view.frame.size.width, navHeadViewHight);
+        [_navHeadView back:^{
+            [weakSelf back];
+        } RightButtonBlcok:^{
+            NSLog(@"RightButton Click");
+        }];
+    }
+    return _navHeadView;
+}
+
 
 @end

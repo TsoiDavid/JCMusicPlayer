@@ -18,6 +18,9 @@
                         <constraint firstAttribute="height" constant="40" id="brU-5o-UgW"/>
                     </constraints>
                     <state key="normal" image="cm2_mv_btn_back_prs"/>
+                    <connections>
+                        <action selector="backButtonAction" destination="iN0-l3-epB" eventType="touchUpInside" id="8XO-je-sXQ"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Og-t4-41e">
                     <rect key="frame" x="465" y="4.5" width="40" height="40"/>
@@ -26,14 +29,17 @@
                         <constraint firstAttribute="height" constant="40" id="msE-Md-vZ4"/>
                     </constraints>
                     <state key="normal" image="menu"/>
+                    <connections>
+                        <action selector="rightButtonAction" destination="iN0-l3-epB" eventType="touchUpInside" id="pIe-vn-fS9"/>
+                    </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="PgY-l0-SOw" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="48o-pu-fNX"/>
                 <constraint firstAttribute="trailing" secondItem="9Og-t4-41e" secondAttribute="trailing" id="720-du-Y6x"/>
-                <constraint firstItem="9Og-t4-41e" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Mdu-GM-Dgy"/>
                 <constraint firstItem="PgY-l0-SOw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PSb-9s-BN0"/>
+                <constraint firstAttribute="bottom" secondItem="9Og-t4-41e" secondAttribute="bottom" constant="5" id="SGo-rY-YNO"/>
+                <constraint firstAttribute="bottom" secondItem="PgY-l0-SOw" secondAttribute="bottom" constant="5" id="rrv-tD-WNG"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
