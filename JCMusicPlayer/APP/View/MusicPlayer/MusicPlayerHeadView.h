@@ -17,7 +17,13 @@
  *  艺术家
  */
 @property (strong, nonatomic) NSString *artist;
-
-
+/**
+ *  字体颜色
+ */
+@property (strong,nonatomic) UIColor *titleColor;
+/**
+ *  字体大小
+ */
+@property (strong,nonatomic) UIFont *titleFont;
 +(MusicPlayerHeadView *)instanceView;
 @end

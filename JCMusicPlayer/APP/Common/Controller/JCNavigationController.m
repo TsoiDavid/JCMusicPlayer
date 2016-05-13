@@ -8,9 +8,9 @@
 
 
 #import "JCNavigationController.h"
-#import "UIBarButtonItem+Extension.h"
 #import "MusicNavagationView.h"
 #import "MusicPlayerViewController.h"
+#import "JCExtension.h"
 //导航条高度
 static const CGFloat navHeadViewHight = 64;
 
@@ -40,12 +40,29 @@ static const CGFloat navHeadViewHight = 64;
     disableTextAttrs[NSForegroundColorAttributeName] = [UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:0.7];
     disableTextAttrs[NSFontAttributeName] = textAttrs[NSFontAttributeName];
     [item setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
+    
+    
+    
+    //设置整个项目所有nav的主题样式
+    UINavigationBar *bar = [UINavigationBar appearance];
+    //字体颜色
+    NSDictionary *navbarAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      [UIColor whiteColor] ,NSForegroundColorAttributeName, nil];
+    [[UINavigationBar appearance] setTitleTextAttributes:navbarAttributes];
+    
+    [bar setTitleTextAttributes:navbarAttributes];
+    //背景颜色
+    [bar setBarTintColor:[[UIColor clearColor]rgbToColorRed:93 Green:93 Blue:117]];
+    //消除透明时候剩下的黑线
+    bar.alpha = 0.0;
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+ 
+//    self.navigationBar.backgroundColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0];
     
 }
 
@@ -63,16 +80,6 @@ static const CGFloat navHeadViewHight = 64;
         /* 设置导航栏上面的内容 */
         // 设置左边的返回按钮
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"cm2_mv_btn_back_prs" highImage:@"cm2_mv_btn_back_prs"];
-
-        
-        if ([viewController isKindOfClass:[MusicPlayerViewController class]]) {
-            self.navigationBar.hidden = YES;
-            [self.view addSubview:self.navHeadView];
-        }else {
-            self.navigationBar.hidden = NO;
-            [_navHeadView removeFromSuperview];
-        }
-        
         
         
 //        viewController.navigationController.navigationBar
@@ -85,7 +92,6 @@ static const CGFloat navHeadViewHight = 64;
 
 - (void)back
 {
-#warning 这里要用self，不是self.navigationController
     // 因为self本来就是一个导航控制器，self.navigationController这里是nil的
     [self popViewControllerAnimated:YES];
 }
@@ -99,20 +105,20 @@ static const CGFloat navHeadViewHight = 64;
     self.navHeadView.titleString = title;
 }
 #pragma mark - CoustomNavagationView
-
-- (MusicNavagationView *)navHeadView {
-    if (!_navHeadView) {
-        _navHeadView = [MusicNavagationView instanceView];
-        __weak typeof(self)weakSelf = self;
-        _navHeadView.frame = CGRectMake(0, 0, self.view.frame.size.width, navHeadViewHight);
-        [_navHeadView back:^{
-            [weakSelf back];
-        } RightButtonBlcok:^{
-            NSLog(@"RightButton Click");
-        }];
-    }
-    return _navHeadView;
-}
+//
+//- (MusicNavagationView *)navHeadView {
+//    if (!_navHeadView) {
+//        _navHeadView = [MusicNavagationView instanceView];
+//        __weak typeof(self)weakSelf = self;
+//        _navHeadView.frame = CGRectMake(0, 0, self.view.frame.size.width, navHeadViewHight);
+//        [_navHeadView back:^{
+//            [weakSelf back];
+//        } RightButtonBlcok:^{
+//            NSLog(@"RightButton Click");
+//        }];
+//    }
+//    return _navHeadView;
+//}
 
 
 @end

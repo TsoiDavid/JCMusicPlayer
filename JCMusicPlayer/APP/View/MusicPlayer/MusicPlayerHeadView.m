@@ -26,15 +26,6 @@
     
 }
 
-- (void)setTitle:(NSString *)title {
-    _title = title;
-    [self refreshHeadViewFrame];
-}
-
-- (void)setArtist:(NSString *)artist {
-    _artist = artist;
-    [self refreshHeadViewFrame];
-}
 
 - (void)refreshHeadViewFrame {
     if (_title.length > 0 && _artist.length > 0) {
@@ -47,6 +38,22 @@
     }
     
     
+}
+#pragma mark - 设置UI
+- (void)setTitle:(NSString *)title {
+    _title = title;
+    [self refreshHeadViewFrame];
+}
+
+- (void)setArtist:(NSString *)artist {
+    _artist = artist;
+    [self refreshHeadViewFrame];
+}
+- (void)setTitleFont:(UIFont *)titleFont {
+    [self.titleLabel setFont:titleFont];
+}
+- (void)setTitleColor:(UIColor *)titleColor {
+    [self.titleLabel setTintColor:titleColor];
 }
 - (void) awakeFromNib
 {

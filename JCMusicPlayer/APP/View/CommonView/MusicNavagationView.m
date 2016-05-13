@@ -20,11 +20,6 @@ static const CGFloat statusBarHight = 20;
 
 @implementation MusicNavagationView
 
-
-- (void)back:(void (^)())backBlock RightButtonBlcok:(void (^)())rightButtonBlcok {
-    _backBlock = backBlock;
-    _rightButtonBlcok = rightButtonBlcok;
-}
 +(MusicNavagationView *)instanceView {
     NSArray* nibView =  [[NSBundle mainBundle] loadNibNamed:@"MusicNavagationView" owner:nil options:nil];
     
@@ -69,6 +64,12 @@ static const CGFloat statusBarHight = 20;
 }
 
 #pragma mark - Action
+
+- (void)back:(void (^)())backBlock RightButtonBlcok:(void (^)())rightButtonBlcok {
+    _backBlock = backBlock;
+    _rightButtonBlcok = rightButtonBlcok;
+}
+
 - (IBAction)backButtonAction {
     _backBlock();
 }
