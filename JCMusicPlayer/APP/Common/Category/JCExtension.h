@@ -13,6 +13,8 @@
 
 @end
 
+#pragma mark - UIBarButtonItem
+
 @interface UIBarButtonItem (Extension)
 /**
  *  添加导航图片按钮
@@ -38,6 +40,8 @@
 + (UIBarButtonItem *)itemWithTarget:(id)target action:(SEL)action title:(NSString *)title titleColor:(UIColor *)color;
 @end
 
+#pragma mark - UIView
+
 @interface UIView (Extension)
 
 @property (nonatomic, assign) CGFloat x;
@@ -62,4 +66,22 @@
 - (UIColor *)hexStringToColor:(NSString *)stringToConvert;
 
 - (UIColor *)rgbToColorRed:(CGFloat)red Green:(CGFloat)green Blue:(CGFloat)blue;
+@end
+
+#pragma mark - UIImage
+
+@interface UIImage (Extend)
+
++ (UIImage* )setBackgroundImageByColor:(UIColor *)backgroundColor withFrame:(CGRect )rect;
+/**
+ *  改变图片颜色
+ *
+ *  @param tintColor 图片颜色
+ *  @param img       图片
+ *  @param alpha     透明度
+ *
+ *  @return 图片
+ */
+- (UIImage *)imageWithTintColor:(UIColor *)tintColor image:(UIImage*)img alpha:(float)alpha;
+
 @end

@@ -36,7 +36,7 @@
     [btn setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
     [btn setImage:[UIImage imageNamed:highImage] forState:UIControlStateHighlighted];
     btn.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    btn.imageEdgeInsets = UIEdgeInsetsMake(9, -5, 9, 30);
+//    btn.imageEdgeInsets = UIEdgeInsetsMake(9, -5, 9, 30);
     [btn setTitleColor:[UIColor grayColor] forState:0];
     btn.titleLabel.font = [UIFont systemFontOfSize:15];
     [btn addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
@@ -211,4 +211,54 @@
                             blue:((CGFloat)blue / 255.0f)
                            alpha:1.0f];
 }
+@end
+
+
+
+#pragma mark  UIImage
+@implementation UIImage (Extend)
+
++ (UIImage* )setBackgroundImageByColor:(UIColor *)backgroundColor withFrame:(CGRect )rect{
+    
+    // tcv - temporary colored view
+    UIView *tcv = [[UIView alloc] initWithFrame:rect];
+    [tcv setBackgroundColor:backgroundColor];
+    
+    
+    // set up a graphics context of button's size
+    CGSize gcSize = tcv.frame.size;
+    UIGraphicsBeginImageContext(gcSize);
+    // add tcv's layer to context
+    [tcv.layer renderInContext:UIGraphicsGetCurrentContext()];
+    // create background image now
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+    //    [tcv release];
+    
+}
+//改变图片颜色
+- (UIImage *)imageWithTintColor:(UIColor *)tintColor image:(UIImage*)img alpha:(float)alpha
+{
+    //We want to keep alpha, set opaque to NO; Use 0.0f for scale to use the scale factor of the device’s main screen.
+    //    UIImage *image0 =  [self addImage:img withImage:self.WIthImage ];
+    UIImage *image0 = img;
+    
+    UIGraphicsBeginImageContextWithOptions(image0.size, NO, 0.0f);
+    
+    [tintColor setFill];
+    
+    CGRect bounds = CGRectMake(0, 0, image0.size.width, image0.size.height);
+    UIRectFill(bounds);
+    
+    //Draw the tinted image in context
+    [image0 drawInRect:bounds blendMode:kCGBlendModeDestinationIn alpha:alpha];
+    
+    UIImage *tintedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return tintedImage;
+}
+
 @end

@@ -50,10 +50,12 @@
     [self refreshHeadViewFrame];
 }
 - (void)setTitleFont:(UIFont *)titleFont {
-    [self.titleLabel setFont:titleFont];
+    self.titleLabel.font = titleFont;
+    self.artistLabel.font = titleFont;
 }
 - (void)setTitleColor:(UIColor *)titleColor {
-    [self.titleLabel setTintColor:titleColor];
+    self.titleLabel.textColor = titleColor;
+    self.artistLabel.textColor = titleColor;
 }
 - (void) awakeFromNib
 {

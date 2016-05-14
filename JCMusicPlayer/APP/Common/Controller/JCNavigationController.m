@@ -45,6 +45,7 @@ static const CGFloat navHeadViewHight = 64;
     
     //设置整个项目所有nav的主题样式
     UINavigationBar *bar = [UINavigationBar appearance];
+    
     //字体颜色
     NSDictionary *navbarAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                       [UIColor whiteColor] ,NSForegroundColorAttributeName, nil];
@@ -53,8 +54,7 @@ static const CGFloat navHeadViewHight = 64;
     [bar setTitleTextAttributes:navbarAttributes];
     //背景颜色
     [bar setBarTintColor:[[UIColor clearColor]rgbToColorRed:93 Green:93 Blue:117]];
-    //消除透明时候剩下的黑线
-    bar.alpha = 0.0;
+    
     
 }
 

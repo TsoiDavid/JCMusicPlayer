@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		6D1FE90C1CE58AC300F218EB /* JCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D1FE90B1CE58AC300F218EB /* JCExtension.m */; };
+		6D1FE90F1CE5B40E00F218EB /* JCNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D1FE90E1CE5B40E00F218EB /* JCNavigationBar.m */; };
+		6D1FE9121CE6358700F218EB /* MusicPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D1FE9111CE6358700F218EB /* MusicPlayerManager.m */; };
+		6D1FE9161CE6BAD400F218EB /* cafedeadend.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D1FE9141CE6BAD400F218EB /* cafedeadend.jpg */; };
+		6D1FE9171CE6BAD400F218EB /* cafelore.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D1FE9151CE6BAD400F218EB /* cafelore.jpg */; };
 		6DE01F0C1CDE408400CB0F8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DE01F0B1CDE408400CB0F8C /* Main.storyboard */; };
 		6DE01F141CDF124000CB0F8C /* MusicNavagationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE01F131CDF124000CB0F8C /* MusicNavagationView.m */; };
 		6DE01F161CDF124D00CB0F8C /* MusicNavagationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6DE01F151CDF124D00CB0F8C /* MusicNavagationView.xib */; };
@@ -52,6 +56,12 @@
 		51CB0572DD6C993BB5F8ECCB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D1FE90A1CE58AC300F218EB /* JCExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCExtension.h; sourceTree = "<group>"; };
 		6D1FE90B1CE58AC300F218EB /* JCExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCExtension.m; sourceTree = "<group>"; };
+		6D1FE90D1CE5B40E00F218EB /* JCNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JCNavigationBar.h; sourceTree = "<group>"; };
+		6D1FE90E1CE5B40E00F218EB /* JCNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JCNavigationBar.m; sourceTree = "<group>"; };
+		6D1FE9101CE6358700F218EB /* MusicPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicPlayerManager.h; sourceTree = "<group>"; };
+		6D1FE9111CE6358700F218EB /* MusicPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicPlayerManager.m; sourceTree = "<group>"; };
+		6D1FE9141CE6BAD400F218EB /* cafedeadend.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cafedeadend.jpg; sourceTree = "<group>"; };
+		6D1FE9151CE6BAD400F218EB /* cafelore.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cafelore.jpg; sourceTree = "<group>"; };
 		6DE01F0B1CDE408400CB0F8C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		6DE01F121CDF124000CB0F8C /* MusicNavagationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicNavagationView.h; sourceTree = "<group>"; };
 		6DE01F131CDF124000CB0F8C /* MusicNavagationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicNavagationView.m; sourceTree = "<group>"; };
@@ -99,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D1FE9131CE6BAD400F218EB /* Rescource */ = {
+			isa = PBXGroup;
+			children = (
+				6D1FE9141CE6BAD400F218EB /* cafedeadend.jpg */,
+				6D1FE9151CE6BAD400F218EB /* cafelore.jpg */,
+			);
+			path = Rescource;
+			sourceTree = "<group>";
+		};
 		6DE01F0A1CDE408400CB0F8C /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +197,8 @@
 				843D66FB1CDC72B5005158FD /* MusicPlayerHeadView.h */,
 				843D66FC1CDC72B5005158FD /* MusicPlayerHeadView.m */,
 				843D66FE1CDC72CC005158FD /* MusicPlayerHeadView.xib */,
+				6D1FE90D1CE5B40E00F218EB /* JCNavigationBar.h */,
+				6D1FE90E1CE5B40E00F218EB /* JCNavigationBar.m */,
 			);
 			path = MusicPlayer;
 			sourceTree = "<group>";
@@ -221,6 +242,7 @@
 		843F2EF51CD99E3B00E852CB /* JCMusicPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				6D1FE9131CE6BAD400F218EB /* Rescource */,
 				843F2F0D1CD9A04E00E852CB /* APP */,
 				843F2F121CD9A05600E852CB /* Libs */,
 				843D66D91CDC4AB8005158FD /* Resources */,
@@ -278,6 +300,8 @@
 				8442E2AB1CDB4F3700754088 /* MusicItem.m */,
 				8442E2AD1CDB504600754088 /* MusicListItem.h */,
 				8442E2AE1CDB504600754088 /* MusicListItem.m */,
+				6D1FE9101CE6358700F218EB /* MusicPlayerManager.h */,
+				6D1FE9111CE6358700F218EB /* MusicPlayerManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -378,6 +402,8 @@
 				843D66DE1CDC4AB8005158FD /* 1770040300_2031329_l.mp3 in Resources */,
 				843D66E01CDC4AB8005158FD /* 1771694697_4194836_l.mp3 in Resources */,
 				844CFA641CDC9C180064F5E5 /* Assets.xcassets in Resources */,
+				6D1FE9171CE6BAD400F218EB /* cafelore.jpg in Resources */,
+				6D1FE9161CE6BAD400F218EB /* cafedeadend.jpg in Resources */,
 				843D66DF1CDC4AB8005158FD /* 1770059653_2050944_l.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,8 +471,10 @@
 				843D67041CDC7428005158FD /* MusicPlayListViewController.m in Sources */,
 				843F2EF81CD99E3B00E852CB /* main.m in Sources */,
 				843D66941CDC2814005158FD /* MusicPlayListCell.m in Sources */,
+				6D1FE9121CE6358700F218EB /* MusicPlayerManager.m in Sources */,
 				843D67071CDC743E005158FD /* MusicPlayerViewController.m in Sources */,
 				6DE01F141CDF124000CB0F8C /* MusicNavagationView.m in Sources */,
+				6D1FE90F1CE5B40E00F218EB /* JCNavigationBar.m in Sources */,
 				6D1FE90C1CE58AC300F218EB /* JCExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

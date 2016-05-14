@@ -11,7 +11,11 @@
 @class MusicListItem;
 
 @interface MusicPlayerViewController : UIViewController
-//@property (weak, nonatomic) IBOutlet UIImageView *bgImageView;
+/**
+ *  控制器显示的图片
+ */
 @property (strong,nonatomic) UIImageView *bgImageView;
+
 @property (strong, nonatomic) MusicListItem *musicModel;
+
 @end
