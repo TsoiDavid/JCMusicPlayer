@@ -11,8 +11,6 @@
 #import "MusicNavagationView.h"
 #import "MusicPlayerViewController.h"
 #import "JCExtension.h"
-//导航条高度
-static const CGFloat navHeadViewHight = 64;
 
 @interface JCNavigationController ()
 

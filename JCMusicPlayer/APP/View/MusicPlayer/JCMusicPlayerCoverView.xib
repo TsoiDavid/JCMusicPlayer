@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="JCMusicPlayerCoverView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Map-VM-NbS">
+                    <rect key="frame" x="100" y="100" width="400" height="400"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Map-VM-NbS" secondAttribute="height" multiplier="1:1" id="E3p-wk-sWU"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cm2_play_disc" translatesAutoresizingMaskIntoConstraints="NO" id="z0w-BA-FTA">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="Map-VM-NbS" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="2rV-Sc-JVV"/>
+                <constraint firstItem="z0w-BA-FTA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="BEn-XW-K8E"/>
+                <constraint firstItem="Map-VM-NbS" firstAttribute="width" secondItem="z0w-BA-FTA" secondAttribute="height" multiplier="2:3" id="Y2p-lN-Iux"/>
+                <constraint firstItem="z0w-BA-FTA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Zwo-PB-UIy"/>
+                <constraint firstItem="Map-VM-NbS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iVc-J9-Pcx"/>
+                <constraint firstAttribute="trailing" secondItem="z0w-BA-FTA" secondAttribute="trailing" id="pbd-al-uVi"/>
+                <constraint firstAttribute="bottom" secondItem="z0w-BA-FTA" secondAttribute="bottom" id="qf0-AI-w6Q"/>
+                <constraint firstItem="z0w-BA-FTA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zbR-Ix-DS8"/>
+            </constraints>
+            <connections>
+                <outlet property="coverBgImageView" destination="z0w-BA-FTA" id="coT-A3-Xgb"/>
+                <outlet property="coverImageView" destination="Map-VM-NbS" id="HRt-SP-Afc"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="cm2_play_disc" width="238" height="238"/>
+    </resources>
+</document>

@@ -11,16 +11,30 @@
 #import "MusicListItem.h"
 #import "MusicPlayerManager.h"
 #import "JCNavigationBar.h"
+#import "JCMusicPlayerCoverView.h"
+#import "JCMusicPlayerOperationView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
+//导航栏高度
 static const CGFloat NavagationBarHeight = 64;
+//封面宽度占页面宽度百分比
+static const CGFloat coverImageWidthOccupyViewWidthPercent = 0.8;
+//封面Y轴占屏幕高度百分比
+static const CGFloat coverViewTopMarginOccupyViewHeightPercent = 0.2;
+//操作栏高度
+static const CGFloat operationViewHeight = 80;
 
 @interface MusicPlayerViewController ()
 
 @property (strong,nonatomic) JCNavigationBar *jcBar;
+@property (strong,nonatomic) JCMusicPlayerCoverView *coverView;
+@property (strong,nonatomic) JCMusicPlayerOperationView *operaiontView;
 @property (strong,nonatomic) UIToolbar *toolBar;
 @property (strong,nonatomic) CALayer *imageLayer;
 @property (strong,nonatomic) UIImage *stopImage;
+@property (strong,nonatomic) UIView *needleView;
+@property (strong,nonatomic) UIImageView *needleImageView;
+
 @end
 
 @implementation MusicPlayerViewController
@@ -45,7 +59,7 @@ static const CGFloat NavagationBarHeight = 64;
 }
 - (void)setUI {
     
-     self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     //导航头
     MusicPlayerHeadView *headView = [MusicPlayerHeadView instanceView];
     headView.title = _musicModel.title;
@@ -53,10 +67,9 @@ static const CGFloat NavagationBarHeight = 64;
     headView.titleColor = [UIColor whiteColor];
     self.jcBar.titleView = headView;
 
-
+    //背景layer
     self.imageLayer = [CALayer layer];
     _imageLayer.frame = self.view.frame;
-    
     [self.view.layer addSublayer:_imageLayer];
     
     //模糊化
@@ -67,19 +80,55 @@ static const CGFloat NavagationBarHeight = 64;
    UIImage *bgimage = [self getDataFromMusicManager];;
     
     if (!bgimage) {
-        bgimage = [UIImage setBackgroundImageByColor:[UIColor grayColor] withFrame:self.view.frame];
+        bgimage = [UIImage imageNamed:@"musicplayer_bgImage_default.jpg"];
     }
     self.imageLayer.contents = (__bridge id)bgimage.CGImage;
     
+    //封面设置
+    CGFloat coverViewY = self.view.height * coverViewTopMarginOccupyViewHeightPercent;
+    CGFloat coverViewWH = self.view.width * coverImageWidthOccupyViewWidthPercent;
+    CGFloat coverViewX = (self.view.width - coverViewWH)/2;
+    _coverView = [JCMusicPlayerCoverView instanceView];
+    _coverView.frame = CGRectMake(coverViewX, coverViewY, coverViewWH, coverViewWH);
+    _coverView.rotation = YES;
+//    CGPoint coverPoint =  _coverView.center;
+//    coverPoint.x = self.view.center.x;
+//    coverPoint.y = self.view.center.y - NavagationBarHeight;
+//    _coverView.center = coverPoint;
+    [_toolBar addSubview:_coverView];
+
+    //播放杆图片
+    CGFloat needleViewW = self.view.width * 0.3;
+    CGFloat needleViewH = self.view.height * 0.3;
+    _needleView = [[UIView alloc]initWithFrame:CGRectMake(0, self.jcBar.height, needleViewW, needleViewH)];
+    _needleView.clipsToBounds = YES;
+    _needleView.backgroundColor = [UIColor clearColor];
+    CGPoint point = _needleView.center;
+    point.x = self.view.center.x + 30;
+    _needleView.center = point;
+    [_toolBar addSubview:_needleView];
     
-    __weak typeof(self)weakSelf = self;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //获取图片
-        [weakSelf sdWebDownLoadImageWithUrl:_musicModel.pic];
-    });
+    _needleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, -40, _needleView.width, _needleView.height)];
+    _needleImageView.image = [UIImage imageNamed:@"cm2_play_needle_play"];
+    _needleImageView.contentMode = UIViewContentModeScaleAspectFit;
+    _needleImageView.backgroundColor = [UIColor clearColor];
+    [_needleView addSubview:_needleImageView];
+    
+    //操作界面
+    _operaiontView = [JCMusicPlayerOperationView instanceView];
+    _operaiontView.frame = CGRectMake(0, self.view.height - _operaiontView.height, self.view.width, operationViewHeight);
+    _operaiontView.backgroundColor = [UIColor clearColor];
+    [_toolBar addSubview:_operaiontView];
+    [_operaiontView clickOperationPlayMusicButton:^{
+       
+    }];
+    //获取当前音乐图片
+    [self sdWebDownLoadImageWithUrl:_musicModel.pic];
     
     
 }
+
+//CALayer实现 淡入浅出动画
 - (void)layerAnimation {
     
     UIImage *stopImage = _stopImage;
@@ -88,7 +137,7 @@ static const CGFloat NavagationBarHeight = 64;
     CABasicAnimation *contentsAnimation = [CABasicAnimation animationWithKeyPath:@"contents"];
     contentsAnimation.fromValue = self.imageLayer.contents;
     contentsAnimation.toValue = (__bridge id)stopImage.CGImage;
-    contentsAnimation.duration = 2.f;
+    contentsAnimation.duration = 0.5f;
     
     //bounds动画
     CABasicAnimation *boundsAnimation = [CABasicAnimation animationWithKeyPath:@"bounds"];
@@ -96,12 +145,12 @@ static const CGFloat NavagationBarHeight = 64;
     //因为CGRect不是对象 故用以下方式转为对象
     boundsAnimation.fromValue = [NSValue valueWithCGRect:self.imageLayer.bounds];
     boundsAnimation.toValue = [NSValue valueWithCGRect:CGRectMake(0, 0,self.view.width, self.view.height)];
-    boundsAnimation.duration = 2.f;
+    boundsAnimation.duration = 0.5f;
     
     //组合动画
     CAAnimationGroup *groupAnimation = [CAAnimationGroup animation];
     groupAnimation.animations = @[contentsAnimation,boundsAnimation];
-    groupAnimation.duration = 2.f;
+    groupAnimation.duration = 0.5f;
     
     self.imageLayer.contents = (__bridge id)(stopImage.CGImage);
     self.imageLayer.bounds = CGRectMake(0, 0, self.view.width, self.view.height);
@@ -123,15 +172,21 @@ static const CGFloat NavagationBarHeight = 64;
     [manager downloadImageWithURL:[NSURL URLWithString:urlString] options:SDWebImageCacheMemoryOnly progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-        _stopImage = image;
+        //装入当前需要显示的图片
+        weakSelf.stopImage = image;
+        
+        //显示到封面
+        weakSelf.coverView.image = image;
+        
         //记录当前图片
         MusicPlayerManager *manager = [MusicPlayerManager shareInstance];
         if (manager.bgImage != image) {
            manager.bgImage = image;
         }
+        //动画切换图片
         [weakSelf performSelector:@selector(layerAnimation)
                    withObject:nil
-                   afterDelay:1.5f];
+                   afterDelay:0.5f];
         
     }];
 }

@@ -25,5 +25,10 @@
  *  字体大小
  */
 @property (strong,nonatomic) UIFont *titleFont;
+/**
+ *  构造方法
+ *
+ *  @return 导航头部(标题+歌手)View
+ */
 +(MusicPlayerHeadView *)instanceView;
 @end
